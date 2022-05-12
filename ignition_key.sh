@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "\nStarting... If error, try to run: sed -i -e 's/\r$//' ignition_key.sh\n"
+
 # Define colors...
 RED=`tput bold && tput setaf 1`
 GREEN=`tput bold && tput setaf 2`
@@ -55,11 +57,6 @@ then
 	echo "export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '" >> ~/.bashrc
 fi
 
-BLUE "Installing SimpleScreenRecorder..."
-echo "" | sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
-sudo apt-get update
-sudo apt-get install -y simplescreenrecorder
-
 BLUE "Installing task..."
 sudo apt-get install -y taskwarrior
 
@@ -67,10 +64,10 @@ BLUE "Installing pip..."
 sudo apt-get install -y python-pip
 
 BLUE "Removing boilerplate home directories..."
-rmdir ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Public ~/Templates ~/Videos
+rmdir ~/Documents ~/Music ~/Public ~/Templates ~/Videos
 
-BLUE "Installing guake..."
-sudo apt-get install -y guake
+# BLUE "Installing guake..."
+# sudo apt-get install -y guake
 
 BLUE "Installing openvpn..."
 sudo apt-get install -y openvpn
@@ -86,42 +83,39 @@ sudo usermod -aG docker `logname`
 BLUE "Installing curl..."
 sudo apt-get install -y curl
 
-BLUE "Installing pinta..."
-sudo apt-get install -y pinta
-
 BLUE "Installing exiftool..."
 sudo apt-get install -y exiftool
 
 BLUE "Installing Python PIL..."
 sudo apt-get install -y python-pil
 
-BLUE "Installing sqlitebrowser..."
-sudo apt-get install -y sqlitebrowser
+# BLUE "Installing sqlitebrowser..."
+# sudo apt-get install -y sqlitebrowser
 
-BLUE "Installing Wireshark..."
-sudo apt-get install -y wireshark
+# BLUE "Installing Wireshark..."
+# sudo apt-get install -y wireshark
 
-BLUE "Install Real VNC Viewer..."
-wget "https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.17.1113-Linux-x64.deb" -O vnc_viewer.deb
-dpkg -i vnc_viewer.deb
-rm vnc_viewer.deb
+# BLUE "Install Real VNC Viewer..."
+# wget "https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.17.1113-Linux-x64.deb" -O vnc_viewer.deb
+# dpkg -i vnc_viewer.deb
+# rm vnc_viewer.deb
 
-BLUE "Install Real VNC Connect (Server)..."
-wget 'https://www.realvnc.com/download/file/vnc.files/VNC-Server-6.2.1-Linux-x64.deb' -O vnc_server.deb
-dpkg -i vnc_server.deb
-rm vnc_server.deb
+# BLUE "Install Real VNC Connect (Server)..."
+# wget 'https://www.realvnc.com/download/file/vnc.files/VNC-Server-6.2.1-Linux-x64.deb' -O vnc_server.deb
+# dpkg -i vnc_server.deb
+# rm vnc_server.deb
 
-BLUE "Adding VNC Connect (Server) service to the default startup /etc/rc.local..."
-grep "vncserver-x11-serviced.service" /etc/rc.local
-if [ $? -eq 1 ]
-then
-	echo "systemctl start vncserver-x11-serviced.service" >> ~/etc/rc.local
-fi
+# BLUE "Adding VNC Connect (Server) service to the default startup /etc/rc.local..."
+# grep "vncserver-x11-serviced.service" /etc/rc.local
+# if [ $? -eq 1 ]
+# then
+# 	echo "systemctl start vncserver-x11-serviced.service" >> ~/etc/rc.local
+# fi
 
-BLUE "Installing Atom..."
-wget "https://atom.io/download/deb" -O atom.deb
-dpkg -i atom.deb
-rm atom.deb
+# BLUE "Installing Atom..."
+# wget "https://atom.io/download/deb" -O atom.deb
+# dpkg -i atom.deb
+# rm atom.deb
 
 BLUE "Installing python-requests..."
 pip install requests
@@ -129,13 +123,13 @@ pip install requests
 BLUE "Installing idle..."
 sudo apt install -y idle
 
-BLUE "Installing xclip..."
-sudo apt install -y xclip
-grep "alias xclip" ~/.bashrc
-if [ $? -eq 1 ]
-then
-	echo "alias xclip='xclip -selection clipboard'" >> ~/.bashrc
-fi
+# BLUE "Installing xclip..."
+# sudo apt install -y xclip
+# grep "alias xclip" ~/.bashrc
+# if [ $? -eq 1 ]
+# then
+# 	echo "alias xclip='xclip -selection clipboard'" >> ~/.bashrc
+# fi
 
 BLUE "Installing Python flask..."
 sudo pip install flask
@@ -149,20 +143,17 @@ sudo pip install colorama
 BLUE "Installing Python passlib..."
 sudo pip install passlib
 
-BLUE "Installing Spotify..."
-sudo snap install spotify
+# BLUE "Installing Binwalk..."
+# sudo apt install -y binwalk
 
-BLUE "Installing Binwalk..."
-sudo apt install -y binwalk
+# BLUE "Installing Tesseract..."
+# sudo apt install -y tesseract-ocr
 
-BLUE "Installing Tesseract..."
-sudo apt install -y tesseract-ocr
+# BLUE "Installing foremost..."
+# sudo apt install -y foremost
 
-BLUE "Installing foremost..."
-sudo apt install -y foremost
-
-BLUE "Installing rot13..."
-sudo apt install -y bsdgames	
+# BLUE "Installing rot13..."
+# sudo apt install -y bsdgames	
 
 BLUE "Installing hexedit..."
 sudo apt install -y hexedit	
@@ -191,25 +182,25 @@ sudo apt install -y sqlite
 BLUE "Installing nikto..."
 sudo apt install -y nikto
 
-BLUE "Installing zbarimg..."
-sudo apt install -y zbar-tools	
+# BLUE "Installing zbarimg..."
+# sudo apt install -y zbar-tools	
 
-BLUE "Installing qrencode..."
-sudo apt install -y qrencode
+# BLUE "Installing qrencode..."
+# sudo apt install -y qrencode
 
-BLUE "Installing pdfcrack..."
-sudo apt install -y pdfcrack
+# BLUE "Installing pdfcrack..."
+# sudo apt install -y pdfcrack
 
-BLUE "Installing Virtualbox..."
-sudo apt install -y virtualbox-qt
+# BLUE "Installing Virtualbox..."
+# sudo apt install -y virtualbox-qt
 
-BLUE "Installing Vagrant..."
-sudo apt install -y vagrant
+# BLUE "Installing Vagrant..."
+# sudo apt install -y vagrant
 
-BLUE "Installing Hopper..."
-wget "https://d2ap6ypl1xbe4k.cloudfront.net/Hopper-v4-4.3.14-Linux.deb"
-dpkg -i Hopper-v4-4.3.14-Linux.deb
-rm Hopper-v4-4.3.14-Linux.deb
+# BLUE "Installing Hopper..."
+# wget "https://d2ap6ypl1xbe4k.cloudfront.net/Hopper-v4-4.3.14-Linux.deb"
+# dpkg -i Hopper-v4-4.3.14-Linux.deb
+# rm Hopper-v4-4.3.14-Linux.deb
 
 
 BLUE "Installing Oracle Java 8..."
@@ -217,24 +208,11 @@ echo "" | sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install -y oracle-java8-installer
 
-BLUE "Downloading stegsolve.jar..."
-wget "http://www.caesum.com/handbook/Stegsolve.jar" -O "stegsolve.jar"
-chmod +x "stegsolve.jar"
-
-BLUE "Installing fcrackzip..."
-sudo apt install -y fcrackzip
+# BLUE "Installing fcrackzip..."
+# sudo apt install -y fcrackzip
 
 BLUE "Installing unrar..."
 sudo apt install -y unrar
-
-BLUE "Installing steghide..."
-sudo apt install -y steghide
-
-BLUE "Installing ffmpeg..."
-sudo apt install -y ffmpeg
-
-BLUE "Installing Python library netifaces..."
-sudo pip install netifaces
 
 BLUE "Installing Python library iptools..."
 sudo pip install iptools
@@ -242,19 +220,8 @@ sudo pip install iptools
 BLUE "Installing Python library OpenSSL..."
 sudo pip install pyopenssl
 
-
-BLUE "Installing Python library pydispatch..."
-sudo pip install pydispatch
-
-BLUE "Installing GIMP..."
-sudo apt install -y gimp
-
-BLUE "Installing cmake..."
-sudo apt install -y cmake
-
-BLUE "Installing mplayer..."
-sudo apt install -y mplayer
-
+# BLUE "Installing Python library pydispatch..."
+# sudo pip install pydispatch
 
 BLUE "Installing sshpass..."
 sudo apt install -y sshpass
@@ -262,11 +229,18 @@ sudo apt install -y sshpass
 BLUE "Installing tcpflow..."
 sudo apt install -y tcpflow
 
-BLUE "Installing Python scapy..."
-sudo pip install scapy
+# BLUE "Installing Python scapy..."
+# sudo pip install scapy
 
-BLUE "Installing the thing that 7z2john.pl needs..."
-sudo apt install libcompress-raw-lzma-perl 
+# BLUE "Installing the thing that 7z2john.pl needs..."
+# sudo apt install libcompress-raw-lzma-perl 
 
-BLUE "Installing dos2unix..."
-sudo apt install libcompress-raw-lzma-perl
+# BLUE "Installing dos2unix..."
+# sudo apt install libcompress-raw-lzma-perl
+
+# devme4f added
+BLUE "Installing proton-vpn"
+sudo apt -y install protonvpn
+
+BLUE "Installing gobuster"
+sudo apt install -y gobuster
