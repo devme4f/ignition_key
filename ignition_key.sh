@@ -95,28 +95,6 @@ sudo apt-get install -y python-pil
 # BLUE "Installing Wireshark..."
 # sudo apt-get install -y wireshark
 
-# BLUE "Install Real VNC Viewer..."
-# wget "https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.17.1113-Linux-x64.deb" -O vnc_viewer.deb
-# dpkg -i vnc_viewer.deb
-# rm vnc_viewer.deb
-
-# BLUE "Install Real VNC Connect (Server)..."
-# wget 'https://www.realvnc.com/download/file/vnc.files/VNC-Server-6.2.1-Linux-x64.deb' -O vnc_server.deb
-# dpkg -i vnc_server.deb
-# rm vnc_server.deb
-
-# BLUE "Adding VNC Connect (Server) service to the default startup /etc/rc.local..."
-# grep "vncserver-x11-serviced.service" /etc/rc.local
-# if [ $? -eq 1 ]
-# then
-# 	echo "systemctl start vncserver-x11-serviced.service" >> ~/etc/rc.local
-# fi
-
-# BLUE "Installing Atom..."
-# wget "https://atom.io/download/deb" -O atom.deb
-# dpkg -i atom.deb
-# rm atom.deb
-
 BLUE "Installing python-requests..."
 pip install requests
 
@@ -142,18 +120,6 @@ sudo pip install colorama
 
 BLUE "Installing Python passlib..."
 sudo pip install passlib
-
-# BLUE "Installing Binwalk..."
-# sudo apt install -y binwalk
-
-# BLUE "Installing Tesseract..."
-# sudo apt install -y tesseract-ocr
-
-# BLUE "Installing foremost..."
-# sudo apt install -y foremost
-
-# BLUE "Installing rot13..."
-# sudo apt install -y bsdgames	
 
 BLUE "Installing hexedit..."
 sudo apt install -y hexedit	
@@ -182,27 +148,6 @@ sudo apt install -y sqlite
 BLUE "Installing nikto..."
 sudo apt install -y nikto
 
-# BLUE "Installing zbarimg..."
-# sudo apt install -y zbar-tools	
-
-# BLUE "Installing qrencode..."
-# sudo apt install -y qrencode
-
-# BLUE "Installing pdfcrack..."
-# sudo apt install -y pdfcrack
-
-# BLUE "Installing Virtualbox..."
-# sudo apt install -y virtualbox-qt
-
-# BLUE "Installing Vagrant..."
-# sudo apt install -y vagrant
-
-# BLUE "Installing Hopper..."
-# wget "https://d2ap6ypl1xbe4k.cloudfront.net/Hopper-v4-4.3.14-Linux.deb"
-# dpkg -i Hopper-v4-4.3.14-Linux.deb
-# rm Hopper-v4-4.3.14-Linux.deb
-
-
 BLUE "Installing Oracle Java 8..."
 echo "" | sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
@@ -229,18 +174,18 @@ sudo apt install -y sshpass
 BLUE "Installing tcpflow..."
 sudo apt install -y tcpflow
 
-# BLUE "Installing Python scapy..."
-# sudo pip install scapy
-
-# BLUE "Installing the thing that 7z2john.pl needs..."
-# sudo apt install libcompress-raw-lzma-perl 
-
-# BLUE "Installing dos2unix..."
-# sudo apt install libcompress-raw-lzma-perl
-
 # devme4f added
 BLUE "Installing proton-vpn"
 sudo apt -y install protonvpn
 
 BLUE "Installing gobuster"
 sudo apt install -y gobuster
+
+BLUE "Installing python3"
+sudo apt install python3
+
+BLUE "Installing python2"
+sudo apt install python2
+
+BLUE "Installing php"
+sudo apt install php
